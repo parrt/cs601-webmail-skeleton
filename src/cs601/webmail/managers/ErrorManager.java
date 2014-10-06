@@ -11,14 +11,15 @@ public class ErrorManager {
 	}
 
 	public void panic(String msg, Exception e) {
+		System.err.println(msg);
 	}
-
 	public void error(String msg) {
-
+		System.err.println(msg);
 	}
 	public void error(Exception e) {
-
+		e.printStackTrace(System.err);
 	}
 	public void error(String msg, Exception e) {
+		System.err.println(msg);
 	}
 }

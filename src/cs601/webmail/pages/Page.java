@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-public class Page {
+public abstract class Page {
 	HttpServletRequest request;
 	HttpServletResponse response;
 	PrintWriter out;
@@ -52,13 +52,30 @@ public class Page {
 			footer();
 		}
 		catch (VerifyException ve) {
-			// redirect to error page
+			try {
+				response.sendRedirect("/files/error.html");
+			}
+			catch (IOException ioe) {
+				ErrorManager.instance().error(ioe);
+			}
+		}
+		catch (Exception e) {
+			ErrorManager.instance().error(e);
 		}
 		finally {
 			out.close();
 		}
 	}
-	public void header() { }
-	public void body() { }
-	public void footer() { }
+
+	public void header() {
+		out.println("<html>");
+		out.println("<body>");
+	}
+
+	public abstract void body();
+
+	public void footer() {
+		out.println("</body>");
+		out.println("</html>");
+	}
 }
