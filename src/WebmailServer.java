@@ -30,7 +30,7 @@ public class WebmailServer {
         holderHome.setInitParameter("resourceBase",staticFilesDir);
         holderHome.setInitParameter("dirAllowed","true");
         holderHome.setInitParameter("pathInfoOnly","true");
-		context.addServlet(holderHome, "/static/*");
+		context.addServlet(holderHome, "/files/*");
 
         // Lastly, the default servlet for root content (always needed, to satisfy servlet spec)
         // It is important that this is last.

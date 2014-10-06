@@ -54,6 +54,9 @@ public class Page {
 		catch (VerifyException ve) {
 			// redirect to error page
 		}
+		finally {
+			out.close();
+		}
 	}
 	public void header() { }
 	public void body() { }

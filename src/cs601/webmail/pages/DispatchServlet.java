@@ -25,19 +25,11 @@ public class DispatchServlet extends HttpServlet {
 		String uri = request.getRequestURI();
 		Page p = createPage(uri, request, response);
 		if ( p==null ) {
-			response.sendRedirect("/static/error.html");
+			response.sendRedirect("/files/error.html");
 			return;
 		}
-		p.generate();
-
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Home page of webmail");
-		out.println("</body>");
-		out.println("</html>");
-		out.close();
+		p.generate();
 	}
 
 	public Page createPage(String uri,
