@@ -1,3 +1,5 @@
+package cs601.webmail;
+
 import cs601.webmail.pages.DispatchServlet;
 import org.eclipse.jetty.server.NCSARequestLog;
 import org.eclipse.jetty.server.Server;

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-public class Page {
+public abstract class Page {
 	HttpServletRequest request;
 	HttpServletResponse response;
 	PrintWriter out;
